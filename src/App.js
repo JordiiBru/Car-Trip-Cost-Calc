@@ -63,7 +63,7 @@ const App = () => {
   }
 
   function displayResult(){
-    var empty_msg = '[Fill every possible blank to proceed]';
+    var empty_msg = '[Waiting for data...]';
     var res = calculate();
     res = res / Passengers;
     res = res.toFixed(2);
