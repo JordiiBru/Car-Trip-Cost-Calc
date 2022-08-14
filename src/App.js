@@ -5,7 +5,7 @@ import './App.css';
 
 const App = () => {
   const [Passengers, setPassengers] = useState('');
-  const [km, setKm] = useState('');
+  const [Km, setKm] = useState('');
   const [GasPrice, setGasPrice] = useState('');
   const [CarUsage, setCarUsage] = useState('');
   const [Toll, setToll] = useState('');
@@ -16,7 +16,7 @@ const App = () => {
   const passengerChange = event => {
     setPassengers(event.target.value);
   };
-  const kmChange = event => {
+  const KmChange = event => {
     setKm(event.target.value);
   };
   const GasPriceChange = event => {
@@ -48,7 +48,7 @@ const App = () => {
     var carCost = parseFloat(CarUsage)/100;
     if(LuggageFlag == true) carCost = carCost + 0.015;
     if(RainFlag == true) carCost = carCost + 0.05;
-    var total_l = parseFloat(km) * carCost;
+    var total_l = parseFloat(Km) * carCost;
     return total_l * parseFloat(GasPrice) + PreuPeatge;
   }
 
@@ -95,10 +95,10 @@ const App = () => {
           <label> Number of kilometers on road:
             <input
                 type="int"
-                id="km"
-                name="km"
-                onChange={kmChange}
-                value={km}
+                id="Km"
+                name="Km"
+                onChange={KmChange}
+                value={Km}
             />
           </label>
         </form>
@@ -106,7 +106,7 @@ const App = () => {
         
       <p>
         <form>
-          <label> Gas price at the moment per KM:
+          <label> Gas price at the moment per Km:
             <input
               type="int"
               id="GasPrice"
@@ -120,7 +120,7 @@ const App = () => {
         
       <p>
         <form>
-          <label> Car's gas consumption in L per 100 KM:
+          <label> Car's gas consumption in L per 100 Km:
             <input
               type="int"
               id="CarUsage"
