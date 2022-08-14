@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import './App.css';
+import { Header } from './Components/Common'
 
 
 const App = () => {
@@ -76,6 +77,8 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header />
+      
       <p>
         <form> 
           <label> Number of Passengers on board:
