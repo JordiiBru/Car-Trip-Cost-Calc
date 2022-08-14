@@ -44,10 +44,10 @@ const App = () => {
 
   function calculate(){
     var PreuPeatge = 0;
-    if(PeajeFlag == true) PreuPeatge = parseFloat(Toll);
+    if(PeajeFlag === true) PreuPeatge = parseFloat(Toll);
     var carCost = parseFloat(CarUsage)/100;
-    if(LuggageFlag == true) carCost = carCost + 0.015;
-    if(RainFlag == true) carCost = carCost + 0.05;
+    if(LuggageFlag === true) carCost = carCost + 0.015;
+    if(RainFlag === true) carCost = carCost + 0.05;
     var total_l = parseFloat(Km) * carCost;
     return total_l * parseFloat(GasPrice) + PreuPeatge;
   }
