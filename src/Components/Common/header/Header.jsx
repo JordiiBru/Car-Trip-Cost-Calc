@@ -13,10 +13,10 @@ function Header () {
                 <section className='header-top_navbar'>
                     <section className='header-top_navigation'>
                         <Navbar />
-                    </section>
-                    <hr className="header-top_seperator" />                     
+                    </section>                   
                 </section>
             </section>
+            <hr className="header-top_seperator" />  
         </section>
     )
 }

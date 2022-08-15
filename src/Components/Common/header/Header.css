@@ -1,5 +1,4 @@
 .header {
-    margin-top: 20px;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -9,6 +8,7 @@
     display: flex;
     width: 100%;
     height: 125px;
+    background-color: beige;
   }
   
   .header-top_logo {
@@ -23,8 +23,9 @@
     text-decoration: inherit;
     font-family: RobotoThin;
     font-size: 100px;
-    height: 125px;
-    width: 300px;
+    height: 100px;
+    width: 200px;
+    margin-bottom: 20px;
   }
   
   .header-top_navbar {
@@ -49,50 +50,8 @@
     margin-right: 55px;
   }
   
-  .header-bottom {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 6px;
-  }
-  
-  .header-bottom_email {
-    margin-right: 25px;
-  }
-  
-  .header-bottom_profile{
-    margin-right: 65px;
-  }
-  
-  .header-bottom_bag {
-    position: absolute;
-    display: flex;
-  }
-  
-  .header-bottom_bag-icon {
-    position: relative;
-    display: flex;
-    left: -5px;
-    width: 30px;
-    height: 30px; 
-  }
-  
-  .header-bottom_bag-count {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: RobotoRegular;
-    right: 0px;
-    top: -5px;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 10px;
-    color: white;
-  }
 
+ 
   .profile_pic {
     height: 50px;
     width: 50px;
