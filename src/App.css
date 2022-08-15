@@ -37,6 +37,9 @@
   width: 300px;
 }
 
+.type-box {
+  margin-left: 10px;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -82,12 +82,14 @@ const App = () => {
       <p>
         <form> 
           <label> Number of Passengers on board:
-          <input 
+          <input
+            className='type-box' 
             type="int"
             id="Passengers"
             name="Passengers"
             onChange={passengerChange}
             value={Passengers}
+            placeholder="Type..."
           />
           </label>
         </form>
@@ -97,11 +99,13 @@ const App = () => {
         <form>
           <label> Number of kilometers on road:
             <input
+                className='type-box' 
                 type="int"
                 id="Km"
                 name="Km"
                 onChange={KmChange}
                 value={Km}
+                placeholder="Type..."
             />
           </label>
         </form>
@@ -111,11 +115,13 @@ const App = () => {
         <form>
           <label> Gas price at the moment per L:
             <input
+              className='type-box' 
               type="int"
               id="GasPrice"
               name="GasPrice"
               onChange={GasPriceChange}
               value={GasPrice}
+              placeholder="Type..."
             />
           </label>
         </form>
@@ -125,11 +131,13 @@ const App = () => {
         <form>
           <label> Car's gas consumption in L per 100 Km:
             <input
+              className='type-box' 
               type="int"
               id="CarUsage"
               name="CarUsage"
               onChange={CarUsageChange}
               value={CarUsage}
+              placeholder="Type..."
             />
           </label>
         </form>  
