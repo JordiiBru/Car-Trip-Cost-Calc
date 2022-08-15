@@ -7,16 +7,16 @@ function Header () {
     return (
         <section className='header'>
             <section className='header-top'>
-                <section className='header-top_logo'>
+                 {/*<section className='header-top_logo'>
                     <img alt='logo' className='header-logo' src={logo}/>
-                </section>
+                </section> */}
                 <section className='header-top_navbar'>
                     <section className='header-top_navigation'>
                         <Navbar />
-                    </section>                   
-                </section>
+                    </section>              
+                </section>  
             </section>
-            <hr className="header-top_seperator" />  
+            {/*<hr className="header-top_seperator" />*/}
         </section>
     )
 }

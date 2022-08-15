@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #373737;
+  color: white;
 }
 
 .App-logo {
@@ -29,18 +31,22 @@
 }
 
 .logo_pic {
-  color: inherit;
-  text-decoration: inherit;
-  font-family: RobotoThin;
-  font-size: 100px;
-  height: 125px;
-  width: 300px;
+  text-align: left;
+  height: 200px;
+  width: 375px;
 }
 
 .type-box {
   margin-left: 10px;
 }
 
+.intro-text {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

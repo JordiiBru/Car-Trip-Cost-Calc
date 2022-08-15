@@ -4,6 +4,7 @@ import './App.css';
 import { Header } from './Components/Common'
 import entry from './gas_logo.png';
 
+
 const App = () => {
   const [Passengers, setPassengers] = useState('');
   const [Km, setKm] = useState('');
@@ -79,6 +80,9 @@ const App = () => {
     <div className="App">
       <Header />
       <img alt='gas' className='logo_pic' src={entry}/>
+      <h3 className='intro-text'>Do you have a long car trip with friends in mind and need to know how much you're going to spend on gas? </h3>
+      <h3 className='intro-text'>You're in luck! With this calculator you will be able to know the amount of fuel your car will consume during the whole trip and specially how much money each passenger will have to pay.</h3>
+      <h3 className='intro-text'>All you have to do is enter the necessary values in the available boxes and check the corresponding options.</h3>
       <p>
         <form> 
           <label> Number of Passengers on board:
@@ -164,7 +168,8 @@ const App = () => {
       )}
       <h3>{final_amount_msg}</h3>
       <h2>{final_msg}</h2>
-
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      {/* no se com canviar el color del fons total */}
     </div>
   );
 }
