@@ -1,0 +1,43 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .navbar-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    color: inherit;
+    text-decoration: inherit;
+    text-transform: uppercase;
+    outline: none;
+  }
+
+  .header-bottom {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 6px;
+  }
+  
+  .header-bottom_email {
+    margin-right: 25px;
+  }
+  
+  .header-bottom_profile{
+    margin-right: 65px;
+  }
+
+  .profile_pic {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: inherit;
+    outline: none;
+  }
