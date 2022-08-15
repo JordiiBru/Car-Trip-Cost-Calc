@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-import me_pic from '../navbar/profile_git.png'
+import me_pic from '../navbar/prof_pic.png'
 
 function Navbar () {
     return (
