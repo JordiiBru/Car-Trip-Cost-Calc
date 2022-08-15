@@ -28,6 +28,16 @@
   color: #61dafb;
 }
 
+.logo_pic {
+  color: inherit;
+  text-decoration: inherit;
+  font-family: RobotoThin;
+  font-size: 100px;
+  height: 125px;
+  width: 300px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

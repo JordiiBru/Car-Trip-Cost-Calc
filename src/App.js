@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import './App.css';
 import { Header } from './Components/Common'
-
+import entry from './gas_logo.png';
 
 const App = () => {
   const [Passengers, setPassengers] = useState('');
@@ -47,8 +47,8 @@ const App = () => {
     var PreuPeatge = 0;
     if(PeajeFlag === true) PreuPeatge = parseFloat(Toll);
     var carCost = parseFloat(CarUsage)/100;
-    if(LuggageFlag === true) carCost = carCost + 0.015;
-    if(RainFlag === true) carCost = carCost + 0.05;
+    if(LuggageFlag === true) carCost = carCost + carCost*0.015;
+    if(RainFlag === true) carCost = carCost + carCost*0.1;
     var total_l = parseFloat(Km) * carCost;
     return total_l * parseFloat(GasPrice) + PreuPeatge;
   }
@@ -78,7 +78,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      
+      <img alt='gas' className='logo_pic' src={entry}/>
       <p>
         <form> 
           <label> Number of Passengers on board:
@@ -109,7 +109,7 @@ const App = () => {
         
       <p>
         <form>
-          <label> Gas price at the moment per Km:
+          <label> Gas price at the moment per L:
             <input
               type="int"
               id="GasPrice"
