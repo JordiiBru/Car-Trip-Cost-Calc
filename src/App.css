@@ -7,6 +7,11 @@
   font-family: 'Poppins', sans-serif;
  }
 
+ .my-buttons {
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 100px;
+ }
 
 .App-logo {
   height: 40vmin;

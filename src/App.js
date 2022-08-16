@@ -6,35 +6,31 @@ import entry from './gas_logo.png';
 import JSConfetti from 'js-confetti'
 import toast, { Toaster } from 'react-hot-toast';
 
+
 const App = () => {
+  /*global declarations*/
   const [Passengers, setPassengers] = useState('');
   const [Km, setKm] = useState('');
   const [GasPrice, setGasPrice] = useState('');
-  const [CarUsage, setCarUsage] = useState('');
+  const [CarConsum, setCarConsum] = useState('');
   const [Toll, setToll] = useState('');
+  const [top_msg, setMSG1] = useState('');
+  const [bottom_msg, setMSG2] = useState('');
   const [LuggageFlag, setLuggageFlag] = useState(false);
   const [RainFlag, setRainFlag] = useState(false);
   const [PeajeFlag, setPeajeFlag] = useState(false);
-  const [top_msg, setMSG1] = useState('');
-  const [bottom_msg, setMSG2] = useState('');
 
-
-  
-  const handleButton = (event) => {
-    setMSG1(display_All());
-    setMSG2(displayResult());
-  };
-
+  /*Confetti declaration*/
   const jsConfetti = new JSConfetti();
-
   async function confetti_shot(){
     await jsConfetti.addConfetti({
       confettiRadius: 5,
-      confettiNumber: 300,
+      confettiNumber: 150,
     });
   }
 
-  const passengerChange = event => {
+  /*State declarations*/
+  const passengersChange = event => {
     setPassengers(event.target.value);
     setMSG1('');
     setMSG2('');
@@ -49,8 +45,8 @@ const App = () => {
     setMSG1('');
     setMSG2('');
   };
-  const CarUsageChange = event => {
-    setCarUsage(event.target.value);
+  const CarConsumChange = event => {
+    setCarConsum(event.target.value);
     setMSG1('');
     setMSG2('');
   };
@@ -59,48 +55,67 @@ const App = () => {
     setMSG1('');
     setMSG2('');
   };
-  const handleLugCheckbox = (event) => {
+
+  /*Button/Checks declarations*/
+  const handle_LugCheckbox = (event) => {
     setLuggageFlag(event.target.value);
     setLuggageFlag(!LuggageFlag);
     setMSG1('');
     setMSG2('');
   };
-  const handleRainCheckbox = (event) => {
+  const handle_RainCheckbox = (event) => {
     setRainFlag(event.target.value);
     setRainFlag(!RainFlag);
     setMSG1('');
     setMSG2(''); 
   };
-  const handlePeajeCheckbox = (event) => {
+  const handle_PeajeCheckbox = (event) => {
     setPeajeFlag(event.target.value);
     setPeajeFlag(!PeajeFlag);
     setToll('');
     setMSG1('');
     setMSG2('');
   };
+  const handle_Calculate = (event) => {
+    setMSG1(display_Top());
+    setMSG2(display_Bottom());
+  };
+  const handle_Clear = (event) => {
+    setPassengers('');
+    setKm('');
+    setGasPrice('');
+    setCarConsum('');
+    setToll('');
+    setLuggageFlag(false);
+    setRainFlag(false);
+    setPeajeFlag(false);
+    setMSG1('');
+    setMSG2('');
+  };
 
-  function calculate(){
+  /*Functions declarations*/
+  function cost_calculator(){
     var PreuPeatge = 0;
     if(PeajeFlag === true) PreuPeatge = parseFloat(Toll);
-    var carCost = parseFloat(CarUsage)/100;
+    var carCost = parseFloat(CarConsum)/100;
     if(LuggageFlag === true) carCost = carCost + carCost*0.015;
     if(RainFlag === true) carCost = carCost + carCost*0.1;
     var total_l = parseFloat(Km) * carCost;
     return total_l * parseFloat(GasPrice) + PreuPeatge;
   }
 
-  function calc_litres(){
-    var carCost = parseFloat(CarUsage)/100;
+  function liters_calculator(){
+    var carCost = parseFloat(CarConsum)/100;
     if(LuggageFlag === true) carCost = carCost + carCost*0.015;
     if(RainFlag === true) carCost = carCost + carCost*0.1;
     return parseFloat(Km) * carCost;
 
   }
 
-  function displayResult(){
+  function display_Bottom(){
     var empty_msg = '';
     if(parseFloat(Passengers) === 0 || parseFloat(Passengers) === 1) return empty_msg;
-    var res = calculate();
+    var res = cost_calculator();
     if(!isFinite(res / Passengers)) return empty_msg;
     res = res / Passengers;
     res = res.toFixed(2);
@@ -109,38 +124,23 @@ const App = () => {
     return res_msg;
   }
 
-  function display_All(){
+  function display_Top(){
     var empty_msg = '';
-    var res = calculate();
-    res = parseFloat(res.toFixed(2));
+    var res = parseFloat(cost_calculator().toFixed(2));
     if(isNaN(res)){
-      toast.error("Please, fill very possible blank")
+      toast.error("Please, fill very possible blank");
       return empty_msg;
-    } 
-    var liters = calc_litres();
-    liters = parseFloat(liters.toFixed(3));
-    var total_res = '';
-    if(PeajeFlag === false){
-      total_res = 'A total of '+ liters +' liters have been consumed, equivalent to '+ res +' € of fuel';
-    } else {
-      total_res = "A total of "+ liters +" liters have been consumed, equivalent to "+ res +" € of fuel plus toll's cost";
     }
-    return total_res;
+    var liters = parseFloat(liters_calculator().toFixed(3));
+    if(PeajeFlag === false) return 'A total of '+ liters +' liters have been consumed, equivalent to '+ res +' € of fuel';
+    else return "A total of "+ liters +" liters have been consumed, equivalent to "+ res +" € of fuel plus toll's cost";  
   }
-
-
-
-
 
   return (
     <div className="App">
       <div><Toaster/></div>
       <Header />
       <img alt='gas' className='logo_pic' src={entry}/>
-      
-      {/*<h3 className='intro-text'>Do you have a long car trip with friends in mind and need to know how much you're going to spend on gas? </h3>
-      <h3 className='intro-text'>You're in luck! With this calculator you will be able to know the amount of fuel your car will consume during the whole trip and specially how much money each passenger will have to pay.</h3>
-      <h3 className='intro-text'>All you have to do is enter the necessary values in the available boxes and check the corresponding options.</h3>*/}
       <p>
         <form> 
           <label> Number of people on board:
@@ -149,7 +149,7 @@ const App = () => {
             type="int"
             id="Passengers"
             name="Passengers"
-            onChange={passengerChange}
+            onChange={passengersChange}
             value={Passengers}
             placeholder="Type..."
           />
@@ -195,19 +195,19 @@ const App = () => {
             <input
               className='type-box' 
               type="int"
-              id="CarUsage"
-              name="CarUsage"
-              onChange={CarUsageChange}
-              value={CarUsage}
+              id="CarConsum"
+              name="CarConsum"
+              onChange={CarConsumChange}
+              value={CarConsum}
               placeholder="Type..."
             />
           </label>
         </form>  
       </p>
 
-      <p> <input type="checkbox" onChange={handleLugCheckbox} /><span>Heavy luggage?</span> <br/> </p>
-      <p> <input type="checkbox" onChange={handleRainCheckbox} /><span>Does it rain?</span> <br/> </p>
-      <p> <input type="checkbox" onClick={handlePeajeCheckbox} /><span>Toll?</span> <br/> </p>
+      <p> <input type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span>Heavy luggage?</span> <br/> </p>
+      <p> <input type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span>Does it rain?</span> <br/> </p>
+      <p> <input type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span>Toll?</span> <br/> </p>
       {PeajeFlag && (
         <p>
         <form>
@@ -224,17 +224,20 @@ const App = () => {
         </form>
       </p> 
       )}
+
       <p>
-      <button onClick={handleButton}>
-        Show results
-      </button>
+        <button 
+          onClick={handle_Clear}
+          className='my-buttons'>Clear
+        </button>
+        <button
+          onClick={handle_Calculate}
+          className='my-buttons'>Calculate
+        </button>
       </p>
+
       <h2>{top_msg}</h2>
       <h2>{bottom_msg}</h2>
-      
-   
-      
-      
       
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       {/* no se com canviar el color del fons total */}
