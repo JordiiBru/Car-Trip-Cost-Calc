@@ -3,7 +3,7 @@ import {useState} from 'react';
 import './App.css';
 import { Header } from './Components/Common'
 import entry from './gas_logo.png';
-
+import JSConfetti from 'js-confetti'
 
 const App = () => {
   const [Passengers, setPassengers] = useState('');
@@ -14,6 +14,19 @@ const App = () => {
   const [LuggageFlag, setLuggageFlag] = useState(false);
   const [RainFlag, setRainFlag] = useState(false);
   const [PeajeFlag, setPeajeFlag] = useState(false);
+
+  var complete_msg = display_All();
+  var final_msg = displayResult();
+  
+
+  const jsConfetti = new JSConfetti();
+
+  async function confetti_shot(){
+    await jsConfetti.addConfetti({
+      confettiRadius: 5,
+      confettiNumber: 30,
+    });
+  }
 
   const passengerChange = event => {
     setPassengers(event.target.value);
@@ -44,6 +57,8 @@ const App = () => {
     setToll('');
   };
 
+
+
   function calculate(){
     var PreuPeatge = 0;
     if(PeajeFlag === true) PreuPeatge = parseFloat(Toll);
@@ -64,13 +79,13 @@ const App = () => {
 
   function displayResult(){
     var empty_msg = '';
-    if(isNaN(Passengers) || Passengers === 0 || Passengers === 1) return empty_msg;
+    if(parseFloat(Passengers) === 0 || parseFloat(Passengers) === 1) return empty_msg;
     var res = calculate();
+    if(!isFinite(res / Passengers)) return empty_msg;
     res = res / Passengers;
     res = res.toFixed(2);
     var res_msg = 'Each passenger has to pay '+ res +' € to the driver';
-    if(isNaN(res)) return empty_msg;
-    else return res_msg;
+    return res_msg;
   }
 
   function display_All(){
@@ -87,11 +102,11 @@ const App = () => {
       total_res = "A total of "+ liters +" liters have been consumed, equivalent to "+ res +" € of fuel plus toll's cost";
     }
     return total_res;
-
   }
 
-  var msg_test = display_All();
-  var final_msg = displayResult();
+
+
+
 
   return (
     <div className="App">
@@ -184,8 +199,18 @@ const App = () => {
         </form>
       </p> 
       )}
-      <h2>{msg_test}</h2>
+      <p>
+      <button>
+        Click me
+      </button>
+     
+      </p>
+      <h2>{complete_msg}</h2>
       <h2>{final_msg}</h2>
+      
+   
+      
+      
       
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       {/* no se com canviar el color del fons total */}
