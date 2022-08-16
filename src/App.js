@@ -6,6 +6,7 @@ import entry from './gas_logo.png';
 import JSConfetti from 'js-confetti'
 import toast, { Toaster } from 'react-hot-toast';
 import clearMusic from './Components/amogus.mp3';
+import info_icon from './Components/info_icon.png';
 
 
 
@@ -21,6 +22,34 @@ const App = () => {
   const [LuggageFlag, setLuggageFlag] = useState(false);
   const [RainFlag, setRainFlag] = useState(false);
   const [PeajeFlag, setPeajeFlag] = useState(false);
+
+  /*Toast declarations*/
+  const Luggage_Toast = () => toast(
+    (t) => (
+      <span>
+        Car consumption increases by 1.5% per kilometer for each extra 50 kg of luggage.<br/>This is caused by the fact that the heavier the vehicle, the more energy it needs to move. In other words, the more additional weight, the more fuel it consumes.
+        <br/> <button onClick={() => toast.dismiss(t.id)} >❌</button>
+      </span> 
+    ),
+    {
+      duration: 30000,
+      position: 'top-left',
+      icon: '🧳',
+    }
+  );
+  const Rain_Toast = () => toast(
+    (t) => (
+      <span>
+        Because of the rain, cars tend to consume up to 10% more on average than usual.<br/>This is due to the frequent use of the vehicle's electronic components and the more significant use of the accelerator to drive at the same speed as we would on dry asphalt.
+        <br/> <button onClick={() => toast.dismiss(t.id)} >❌</button>
+      </span> 
+    ),
+    {
+      duration: 30000,
+      position: 'top-left',
+      icon: '☔️',
+    }
+  );
 
   /*Confetti declaration*/
   const jsConfetti = new JSConfetti();
@@ -58,10 +87,6 @@ const App = () => {
     setMSG2('');
   };
 
-  function play_clear(){
-    new Audio(clearMusic).play()
-  }
-
   /*Button/Checks declarations*/
   const handle_LugCheckbox = (event) => {
     setLuggageFlag(event.target.value);
@@ -98,6 +123,7 @@ const App = () => {
     setPeajeFlag(false);
     setMSG1('');
     setMSG2('');
+    toast.dismiss();
   };
 
   /*Functions declarations*/
@@ -135,13 +161,18 @@ const App = () => {
     var empty_msg = '';
     var res = parseFloat(cost_calculator().toFixed(2));
     if(isNaN(res)){
-      toast.error("Please, fill very possible blank");
+      toast.error("Please, fill every possible blank");
       return empty_msg;
     }
     var liters = parseFloat(liters_calculator().toFixed(3));
     if(PeajeFlag === false) return 'A total of '+ liters +' liters have been consumed, equivalent to '+ res +' € of fuel';
     else return "A total of "+ liters +" liters have been consumed, equivalent to "+ res +" € of fuel plus toll's cost";  
   }
+
+  function play_clear(){
+    new Audio(clearMusic).play()
+  }
+  
 
   return (
     <div className="App">
@@ -212,8 +243,8 @@ const App = () => {
         </form>  
       </p>
 
-      <p> <input type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span>Heavy luggage?</span> <br/> </p>
-      <p> <input type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span>Does it rain?</span> <br/> </p>
+      <p> <input type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span>Heavy luggage?</span><img alt='i_icon1' className='info-icon' src={info_icon} onClick={Luggage_Toast} /><br/> </p>
+      <p> <input type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span>Does it rain?</span><img alt='i_icon2' className='info-icon' src={info_icon} onClick={Rain_Toast}/> <br/> </p>
       <p> <input type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span>Toll?</span> <br/> </p>
       {PeajeFlag && (
         <p>
@@ -250,6 +281,7 @@ const App = () => {
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       {/* no se com canviar el color del fons total */}
     </div>
+    
   );
 }
 
