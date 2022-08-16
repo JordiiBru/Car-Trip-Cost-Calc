@@ -1,3 +1,15 @@
+#  ✨ About this Project
+
+This is one of my first projects using the React framework and it consists on a calculator to solve the expenses in a long car trip.
+
+By simply entering the values and checking the necessary boxes, we will get the liters consumed and the corresponding money spent. It also facilitates the calculation when distributing the money spent for the driver among all passengers. 
+
+Enjoy my new App! 
+            ~ Jordii Bru 🌼
+            
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
