@@ -105,7 +105,7 @@ const App = () => {
   }
 
   function display_All(){
-    var empty_msg = '[Enter data to reveal trip consumption and expenses]';
+    var empty_msg = '[Please, fill every possible blank]';
     var res = calculate();
     res = parseFloat(res.toFixed(2));
     if(isNaN(res)) return empty_msg;
