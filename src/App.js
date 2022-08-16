@@ -5,6 +5,8 @@ import { Header } from './Components/Common'
 import entry from './gas_logo.png';
 import JSConfetti from 'js-confetti'
 import toast, { Toaster } from 'react-hot-toast';
+import clearMusic from './Components/amogus.mp3';
+
 
 
 const App = () => {
@@ -238,7 +240,7 @@ const App = () => {
 
       <h2>{top_msg}</h2>
       <h2>{bottom_msg}</h2>
-      
+
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       {/* no se com canviar el color del fons total */}
     </div>
