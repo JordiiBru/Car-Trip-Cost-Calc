@@ -14,38 +14,53 @@ const App = () => {
   const [LuggageFlag, setLuggageFlag] = useState(false);
   const [RainFlag, setRainFlag] = useState(false);
   const [PeajeFlag, setPeajeFlag] = useState(false);
+  const [top_msg, setMSG1] = useState('');
+  const [bottom_msg, setMSG2] = useState('');
 
-  var complete_msg = display_All();
-  var final_msg = displayResult();
+
   
+  const handleButton = (event) => {
+    setMSG1(display_All());
+    setMSG2(displayResult());
+  };
 
   const jsConfetti = new JSConfetti();
 
   async function confetti_shot(){
     await jsConfetti.addConfetti({
       confettiRadius: 5,
-      confettiNumber: 30,
+      confettiNumber: 300,
     });
   }
 
   const passengerChange = event => {
     setPassengers(event.target.value);
+    setMSG1('');
+    setMSG2('');
   };
   const KmChange = event => {
     setKm(event.target.value);
+    setMSG1('');
+    setMSG2('');
   };
   const GasPriceChange = event => {
     setGasPrice(event.target.value);
+    setMSG1('');
+    setMSG2('');
   };
   const CarUsageChange = event => {
     setCarUsage(event.target.value);
+    setMSG1('');
+    setMSG2('');
   };
   const TollChange = event => {
     setToll(event.target.value);
+    setMSG1('');
+    setMSG2('');
   };
   const handleLugCheckbox = (event) => {
     setLuggageFlag(event.target.value);
-    setLuggageFlag(!LuggageFlag); 
+    setLuggageFlag(!LuggageFlag);
   };
   const handleRainCheckbox = (event) => {
     setRainFlag(event.target.value);
@@ -55,9 +70,9 @@ const App = () => {
     setPeajeFlag(event.target.value);
     setPeajeFlag(!PeajeFlag);
     setToll('');
+    setMSG1('');
+    setMSG2('');
   };
-
-
 
   function calculate(){
     var PreuPeatge = 0;
@@ -85,6 +100,7 @@ const App = () => {
     res = res / Passengers;
     res = res.toFixed(2);
     var res_msg = 'Each passenger has to pay '+ res +' € to the driver';
+    confetti_shot();
     return res_msg;
   }
 
@@ -200,13 +216,12 @@ const App = () => {
       </p> 
       )}
       <p>
-      <button>
-        Click me
+      <button onClick={handleButton}>
+        Show results
       </button>
-     
       </p>
-      <h2>{complete_msg}</h2>
-      <h2>{final_msg}</h2>
+      <h2>{top_msg}</h2>
+      <h2>{bottom_msg}</h2>
       
    
       
