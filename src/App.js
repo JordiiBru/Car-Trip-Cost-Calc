@@ -54,17 +54,17 @@ const App = () => {
     return total_l * parseFloat(GasPrice) + PreuPeatge;
   }
 
-  function displayAmount(){
-    var empty_msg = '';
-    var res = calculate();
-    res = res.toFixed(2);
-    var res_msg = 'Total amount to pay: '+ res +' €';
-    if(isNaN(res)) return empty_msg;
-    else return res_msg;
+  function calc_litres(){
+    var carCost = parseFloat(CarUsage)/100;
+    if(LuggageFlag === true) carCost = carCost + carCost*0.015;
+    if(RainFlag === true) carCost = carCost + carCost*0.1;
+    return parseFloat(Km) * carCost;
+
   }
 
   function displayResult(){
-    var empty_msg = '[Waiting for data...]';
+    var empty_msg = '';
+    if(isNaN(Passengers) || Passengers === 0 || Passengers === 1) return empty_msg;
     var res = calculate();
     res = res / Passengers;
     res = res.toFixed(2);
@@ -73,7 +73,24 @@ const App = () => {
     else return res_msg;
   }
 
-  var final_amount_msg = displayAmount();
+  function display_All(){
+    var empty_msg = '[Enter data to reveal trip consumption and expenses]';
+    var res = calculate();
+    res = parseFloat(res.toFixed(2));
+    if(isNaN(res)) return empty_msg;
+    var liters = calc_litres();
+    liters = parseFloat(liters.toFixed(3));
+    var total_res = '';
+    if(PeajeFlag === false){
+      total_res = 'A total of '+ liters +' liters have been consumed, equivalent to '+ res +' € of fuel';
+    } else {
+      total_res = "A total of "+ liters +" liters have been consumed, equivalent to "+ res +" € of fuel plus toll's cost";
+    }
+    return total_res;
+
+  }
+
+  var msg_test = display_All();
   var final_msg = displayResult();
 
   return (
@@ -86,7 +103,7 @@ const App = () => {
       <h3 className='intro-text'>All you have to do is enter the necessary values in the available boxes and check the corresponding options.</h3>*/}
       <p>
         <form> 
-          <label> Number of Passengers on board:
+          <label> Number of people on board:
           <input
             className='type-box' 
             type="int"
@@ -118,7 +135,7 @@ const App = () => {
         
       <p>
         <form>
-          <label> Gas price at the moment per L:
+          <label> Fuel price at the moment per L:
             <input
               className='type-box' 
               type="int"
@@ -134,7 +151,7 @@ const App = () => {
         
       <p>
         <form>
-          <label> Car's gas consumption in L per 100 Km:
+          <label> Car's fuel consumption in L per 100 Km:
             <input
               className='type-box' 
               type="int"
@@ -167,8 +184,9 @@ const App = () => {
         </form>
       </p> 
       )}
-      <h3>{final_amount_msg}</h3>
+      <h2>{msg_test}</h2>
       <h2>{final_msg}</h2>
+      
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       {/* no se com canviar el color del fons total */}
     </div>

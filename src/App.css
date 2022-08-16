@@ -31,9 +31,10 @@
 }
 
 .logo_pic {
-  text-align: left;
+  text-align: center;
   height: 200px;
   width: 375px;
+  margin-left: 20px;
 }
 
 .type-box {
