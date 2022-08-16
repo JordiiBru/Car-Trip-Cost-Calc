@@ -58,6 +58,10 @@ const App = () => {
     setMSG2('');
   };
 
+  function play_clear(){
+    new Audio(clearMusic).play()
+  }
+
   /*Button/Checks declarations*/
   const handle_LugCheckbox = (event) => {
     setLuggageFlag(event.target.value);
@@ -83,6 +87,7 @@ const App = () => {
     setMSG2(display_Bottom());
   };
   const handle_Clear = (event) => {
+    play_clear();
     setPassengers('');
     setKm('');
     setGasPrice('');
@@ -230,6 +235,7 @@ const App = () => {
       <p>
         <button 
           onClick={handle_Clear}
+          /*onClick={play}*/
           className='my-buttons'>Clear
         </button>
         <button
