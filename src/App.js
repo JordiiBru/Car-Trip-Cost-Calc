@@ -4,6 +4,7 @@ import './App.css';
 import { Header } from './Components/Common'
 import entry from './gas_logo.png';
 import JSConfetti from 'js-confetti'
+import toast, { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const [Passengers, setPassengers] = useState('');
@@ -61,10 +62,14 @@ const App = () => {
   const handleLugCheckbox = (event) => {
     setLuggageFlag(event.target.value);
     setLuggageFlag(!LuggageFlag);
+    setMSG1('');
+    setMSG2('');
   };
   const handleRainCheckbox = (event) => {
     setRainFlag(event.target.value);
-    setRainFlag(!RainFlag); 
+    setRainFlag(!RainFlag);
+    setMSG1('');
+    setMSG2(''); 
   };
   const handlePeajeCheckbox = (event) => {
     setPeajeFlag(event.target.value);
@@ -105,10 +110,13 @@ const App = () => {
   }
 
   function display_All(){
-    var empty_msg = '[Please, fill every possible blank]';
+    var empty_msg = '';
     var res = calculate();
     res = parseFloat(res.toFixed(2));
-    if(isNaN(res)) return empty_msg;
+    if(isNaN(res)){
+      toast.error("Please, fill very possible blank")
+      return empty_msg;
+    } 
     var liters = calc_litres();
     liters = parseFloat(liters.toFixed(3));
     var total_res = '';
@@ -126,6 +134,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <div><Toaster/></div>
       <Header />
       <img alt='gas' className='logo_pic' src={entry}/>
       
