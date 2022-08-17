@@ -40,7 +40,6 @@
     background-color: black;
   }
 
-  
   .header-top_navigation {
     display: flex;
     flex: 1;
@@ -49,3 +48,26 @@
     margin-right: 55px;
   }
   
+  .cat-flag {
+    float: right;
+    width: 50px;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+
+  .spanish-flag {
+    float: right;
+    width: 50px;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+
+  .english-flag {
+    float: right;
+    width: 50px;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 15px;
+  }

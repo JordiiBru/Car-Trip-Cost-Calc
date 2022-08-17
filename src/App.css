@@ -81,5 +81,12 @@
 
 .result-text {
   text-align: center;
+  /*background-color: #4d4d4d;
+  width: 50%;
+  margin-left: 340px;*/
+}
+
+.move-text {
+  text-align: center;
 }
 

@@ -2,12 +2,12 @@ import React from 'react';
 import {useState} from 'react';
 import './App.css';
 import { Header } from './Components/Common'
-import entry from './gas_logo.png';
+import entry from './Components/Pictures/gas_logo.png';
 import JSConfetti from 'js-confetti'
 import toast, { Toaster } from 'react-hot-toast';
-import clearMusic from './Components/amogus.mp3';
-import infoMusic from './Components/switch.mp3';
-import info_icon from './Components/info_icon.png';
+import clearMusic from './Components/Audios/amogus.mp3';
+import infoMusic from './Components/Audios/switch.mp3';
+import info_icon from './Components/Pictures/info_icon.png';
 
 
 
@@ -29,7 +29,7 @@ const App = () => {
   const Luggage_Toast = () => toast(
     (t) => (
       <span className='my-toast'>
-         🧳 <br/>Car consumption increases by 1.5% per kilometer for each extra 50 kg of luggage.<br/>This is caused by the fact that the heavier the vehicle, the more energy it needs to move. In other words, the more additional weight, the more fuel it consumes.
+        🧳 <br/>Car consumption increases by 1.5% per kilometer for each extra 50 kg of luggage.<br/>This is caused by the fact that the heavier the vehicle, the more energy it needs to move. In other words, the more additional weight, the more fuel it consumes.
         <br/>  <button className='close-toast' onClick={() => toast.dismiss(t.id)} >❌</button>
       </span> 
     ),
@@ -305,13 +305,12 @@ const App = () => {
         </button>
       </p>
       </p>
+
       <p className='result-text'>
         <h2>{top_msg}</h2>
         <h2>{small_msg}</h2>
-        <h2>{bottom_msg}</h2>
-        
+        <h2>{bottom_msg}</h2> 
       </p>
-     
 
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       {/* no se com canviar el color del fons total */}
