@@ -1,5 +1,4 @@
 .App {
-  
   background-color: #373737;
   color: white;
 }
@@ -12,6 +11,7 @@
   margin-right: 5px;
   display: inline-block;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
  }
 
  .clear-button {
@@ -19,6 +19,7 @@
   margin-left: 735px;
   width: 100px;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
  }
 
 .info-icon {
@@ -32,7 +33,6 @@
   display: flex;
 }
 
-
 .logo_pic {
   height: 210px;
   width: 385px;
@@ -43,12 +43,12 @@
   margin-left: 10px;
   margin-right: 500px;
   float: right;
+  font-family: 'Poppins', sans-serif;
 }
 
 .my-label {
   text-align: left;
   margin-left: 450px;
-  cursor: pointer;
 }
 
 .intro-text {
@@ -59,6 +59,12 @@
   text-align: center;
 }
 
+.checkbox-box {
+  cursor: pointer;
+  text-align: left;
+  margin-left: 450px;
+}
+
 .checkbox-text {
   margin-left: 10px;
 }
@@ -66,5 +72,9 @@
 .param-box {
   background-color: #6c6c6c;
   height: 400px;
+}
+
+.result-text {
+  text-align: center;
 }
 

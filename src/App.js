@@ -244,8 +244,6 @@ const App = () => {
         </form>  
       </p>
 
-      <p> <input className='my-label' type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span className='checkbox-text'>Heavy luggage?</span><img alt='i_icon1' className='info-icon' src={info_icon} onClick={Luggage_Toast} /><br/> </p>
-      <p> <input className='my-label' type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span className='checkbox-text'>Does it rain?</span><img alt='i_icon2' className='info-icon' src={info_icon} onClick={Rain_Toast}/> <br/> </p>
       <p> <input className='my-label' type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span className='checkbox-text'>Toll?</span> <span> 
       {PeajeFlag && (
           <label > 
@@ -259,9 +257,10 @@ const App = () => {
                 placeholder="Type toll's cost..."
             />
           </label>
-       
-       
       )} </span> <br/> </p>
+      <p> <input className='checkbox-box' type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span className='checkbox-text'>Heavy luggage?</span><img alt='i_icon1' className='info-icon' src={info_icon} onClick={Luggage_Toast} /><br/> </p>
+      <p> <input className='checkbox-box' type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span className='checkbox-text'>Does it rain?</span><img alt='i_icon2' className='info-icon' src={info_icon} onClick={Rain_Toast}/> <br/> </p>
+
 
       <p>
         <button 
@@ -274,9 +273,11 @@ const App = () => {
         </button>
       </p>
       </p>
-
-      <h2>{top_msg}</h2>
-      <h2>{bottom_msg}</h2>
+      <p className='result-text'>
+        <h2>{top_msg}</h2>
+        <h2>{bottom_msg}</h2>
+      </p>
+     
 
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       {/* no se com canviar el color del fons total */}
