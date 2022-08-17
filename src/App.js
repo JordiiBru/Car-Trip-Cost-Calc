@@ -6,6 +6,7 @@ import entry from './gas_logo.png';
 import JSConfetti from 'js-confetti'
 import toast, { Toaster } from 'react-hot-toast';
 import clearMusic from './Components/amogus.mp3';
+import infoMusic from './Components/switch.mp3';
 import info_icon from './Components/info_icon.png';
 
 
@@ -19,6 +20,7 @@ const App = () => {
   const [Toll, setToll] = useState('');
   const [top_msg, setMSG1] = useState('');
   const [bottom_msg, setMSG2] = useState('');
+  const [small_msg, setMSG3] = useState('');
   const [LuggageFlag, setLuggageFlag] = useState(false);
   const [RainFlag, setRainFlag] = useState(false);
   const [PeajeFlag, setPeajeFlag] = useState(false);
@@ -26,28 +28,26 @@ const App = () => {
   /*Toast declarations*/
   const Luggage_Toast = () => toast(
     (t) => (
-      <span>
-        Car consumption increases by 1.5% per kilometer for each extra 50 kg of luggage.<br/>This is caused by the fact that the heavier the vehicle, the more energy it needs to move. In other words, the more additional weight, the more fuel it consumes.
-        <br/> <button onClick={() => toast.dismiss(t.id)} >❌</button>
+      <span className='my-toast'>
+         🧳 <br/>Car consumption increases by 1.5% per kilometer for each extra 50 kg of luggage.<br/>This is caused by the fact that the heavier the vehicle, the more energy it needs to move. In other words, the more additional weight, the more fuel it consumes.
+        <br/>  <button className='close-toast' onClick={() => toast.dismiss(t.id)} >❌</button>
       </span> 
     ),
     {
       duration: 30000,
       position: 'top-left',
-      icon: '🧳',
     }
   );
   const Rain_Toast = () => toast(
     (t) => (
-      <span>
-        Because of the rain, cars tend to consume up to 10% more on average than usual.<br/>This is due to the frequent use of the vehicle's electronic components and the more significant use of the accelerator to drive at the same speed as we would on dry asphalt.
-        <br/> <button onClick={() => toast.dismiss(t.id)} >❌</button>
+      <span className='my-toast'>
+        ☔️ <br/> Because of the rain, cars tend to consume up to 10% more on average than usual.<br/>This is due to the frequent use of the vehicle's electronic components and the more significant use of the accelerator to drive at the same speed as we would on dry asphalt.
+        <br/> <button className='close-toast' onClick={() => toast.dismiss(t.id)} >❌</button>
       </span> 
     ),
     {
       duration: 30000,
       position: 'top-left',
-      icon: '☔️',
     }
   );
 
@@ -65,40 +65,47 @@ const App = () => {
     setPassengers(event.target.value);
     setMSG1('');
     setMSG2('');
+    setMSG3('');
   };
   const KmChange = event => {
     setKm(event.target.value);
     setMSG1('');
     setMSG2('');
+    setMSG3('');
   };
   const GasPriceChange = event => {
     setGasPrice(event.target.value);
     setMSG1('');
     setMSG2('');
+    setMSG3('');
   };
   const CarConsumChange = event => {
     setCarConsum(event.target.value);
     setMSG1('');
     setMSG2('');
+    setMSG3('');
   };
   const TollChange = event => {
     setToll(event.target.value);
     setMSG1('');
     setMSG2('');
+    setMSG3('');
   };
 
-  /*Button/Checks declarations*/
+  /*Button-Checks declarations*/
   const handle_LugCheckbox = (event) => {
     setLuggageFlag(event.target.value);
     setLuggageFlag(!LuggageFlag);
     setMSG1('');
     setMSG2('');
+    setMSG3('');
   };
   const handle_RainCheckbox = (event) => {
     setRainFlag(event.target.value);
     setRainFlag(!RainFlag);
     setMSG1('');
     setMSG2(''); 
+    setMSG3('');
   };
   const handle_PeajeCheckbox = (event) => {
     setPeajeFlag(event.target.value);
@@ -106,10 +113,12 @@ const App = () => {
     setToll('');
     setMSG1('');
     setMSG2('');
+    setMSG3('');
   };
   const handle_Calculate = (event) => {
     setMSG1(display_Top());
     setMSG2(display_Bottom());
+    setMSG3(display_small());
   };
   const handle_Clear = (event) => {
     play_clear();
@@ -123,6 +132,7 @@ const App = () => {
     setPeajeFlag(false);
     setMSG1('');
     setMSG2('');
+    setMSG3('');
     toast.dismiss();
   };
 
@@ -142,7 +152,15 @@ const App = () => {
     if(LuggageFlag === true) carCost = carCost + carCost*0.015;
     if(RainFlag === true) carCost = carCost + carCost*0.1;
     return parseFloat(Km) * carCost;
+  }
 
+  function display_small(){
+    var empty_msg = '';
+    var res = cost_calculator();
+    if(isNaN(res)) return empty_msg;
+    res = res.toFixed(2);
+    if(!PeajeFlag) return 'Equivalent to '+ res +' € of fuel';
+    else return "Equivalent to "+ res +" € of fuel plus toll's cost";   
   }
 
   function display_Bottom(){
@@ -150,9 +168,10 @@ const App = () => {
     if(parseFloat(Passengers) === 0 || parseFloat(Passengers) === 1) return empty_msg;
     var res = cost_calculator();
     if(!isFinite(res / Passengers)) return empty_msg;
-    res = res / Passengers;
     res = res.toFixed(2);
-    var res_msg = 'Each passenger has to pay '+ res +' € to the driver';
+    var distribution = res / Passengers;
+    distribution = distribution.toFixed(2);
+    var res_msg = 'Each passenger has to pay '+ distribution +' € to the driver';
     confetti_shot();
     return res_msg;
   }
@@ -165,13 +184,26 @@ const App = () => {
       return empty_msg;
     }
     var liters = parseFloat(liters_calculator().toFixed(3));
-    if(PeajeFlag === false) return 'A total of '+ liters +' liters have been consumed, equivalent to '+ res +' € of fuel';
-    else return "A total of "+ liters +" liters have been consumed, equivalent to "+ res +" € of fuel plus toll's cost";  
+    return 'Liters consumed: '+ liters +' L';
+    
   }
 
   function play_clear(){
     new Audio(clearMusic).play()
   }
+
+  function play_info_luggage(){
+    new Audio(infoMusic).play()
+    Luggage_Toast()
+  }
+
+  function play_info_rain(){
+    new Audio(infoMusic).play()
+    Rain_Toast()
+  }
+
+
+
   
 
   return (
@@ -258,8 +290,8 @@ const App = () => {
             />
           </label>
       )} </span> <br/> </p>
-      <p> <input className='checkbox-box' type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span className='checkbox-text'>Heavy luggage?</span><img alt='i_icon1' className='info-icon' src={info_icon} onClick={Luggage_Toast} /><br/> </p>
-      <p> <input className='checkbox-box' type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span className='checkbox-text'>Does it rain?</span><img alt='i_icon2' className='info-icon' src={info_icon} onClick={Rain_Toast}/> <br/> </p>
+      <p> <input className='checkbox-box' type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span className='checkbox-text'>Heavy luggage?</span><img alt='i_icon1' className='info-icon' src={info_icon} onClick={play_info_luggage} /><br/> </p>
+      <p> <input className='checkbox-box' type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span className='checkbox-text'>Does it rain?</span><img alt='i_icon2' className='info-icon' src={info_icon} onClick={play_info_rain}/> <br/> </p>
 
 
       <p>
@@ -275,7 +307,9 @@ const App = () => {
       </p>
       <p className='result-text'>
         <h2>{top_msg}</h2>
+        <h2>{small_msg}</h2>
         <h2>{bottom_msg}</h2>
+        
       </p>
      
 

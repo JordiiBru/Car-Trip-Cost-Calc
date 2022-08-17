@@ -29,8 +29,13 @@
   cursor: pointer;
 }
 
-.my-toast-button {
-  display: flex;
+.my-toast {
+  display: center;
+  text-align: center;
+}
+
+.close-toast {
+  float: right;
 }
 
 .logo_pic {
