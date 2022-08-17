@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
   background-color: #373737;
   color: white;
 }
@@ -8,36 +8,47 @@
  }
 
  .my-buttons {
-  margin-left: 5px;
-  margin-right: 5px;
   width: 100px;
+  margin-right: 5px;
+  display: inline-block;
+  cursor: pointer;
+ }
+
+ .clear-button {
+  margin-right: 5px;
+  margin-left: 735px;
+  width: 100px;
+  cursor: pointer;
  }
 
 .info-icon {
   width: 15px;
   height: 15px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .my-toast-button {
   display: flex;
-
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 .logo_pic {
-  text-align: center;
-  height: 200px;
-  width: 375px;
-  margin-left: 20px;
+  height: 210px;
+  width: 385px;
+  margin-left: 510px;
 }
 
 .type-box {
   margin-left: 10px;
+  margin-right: 500px;
+  float: right;
+}
+
+.my-label {
+  text-align: left;
+  margin-left: 450px;
+  cursor: pointer;
 }
 
 .intro-text {
@@ -47,3 +58,13 @@
   margin-right: 200px;
   text-align: center;
 }
+
+.checkbox-text {
+  margin-left: 10px;
+}
+
+.param-box {
+  background-color: #6c6c6c;
+  height: 400px;
+}
+

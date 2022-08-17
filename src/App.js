@@ -179,9 +179,10 @@ const App = () => {
       <div><Toaster/></div>
       <Header />
       <img alt='gas' className='logo_pic' src={entry}/>
+      <p> {/*classname per pintar*/}
       <p>
         <form> 
-          <label> Number of people on board:
+          <label className='my-label'> Number of people on board:
           <input
             className='type-box' 
             type="int"
@@ -197,7 +198,7 @@ const App = () => {
       
       <p>
         <form>
-          <label> Number of kilometers on road:
+          <label className='my-label'> Number of kilometers on road:
             <input
                 className='type-box' 
                 type="int"
@@ -213,7 +214,7 @@ const App = () => {
         
       <p>
         <form>
-          <label> Fuel price at the moment per L:
+          <label className='my-label'> Fuel price at the moment per L:
             <input
               className='type-box' 
               type="int"
@@ -229,7 +230,7 @@ const App = () => {
         
       <p>
         <form>
-          <label> Car's fuel consumption in L per 100 Km:
+          <label className='my-label'> Car's fuel consumption in L per 100 Km:
             <input
               className='type-box' 
               type="int"
@@ -243,14 +244,13 @@ const App = () => {
         </form>  
       </p>
 
-      <p> <input type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span>Heavy luggage?</span><img alt='i_icon1' className='info-icon' src={info_icon} onClick={Luggage_Toast} /><br/> </p>
-      <p> <input type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span>Does it rain?</span><img alt='i_icon2' className='info-icon' src={info_icon} onClick={Rain_Toast}/> <br/> </p>
-      <p> <input type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span>Toll?</span> <br/> </p>
+      <p> <input className='my-label' type="checkbox" onChange={handle_LugCheckbox} checked={LuggageFlag}/><span className='checkbox-text'>Heavy luggage?</span><img alt='i_icon1' className='info-icon' src={info_icon} onClick={Luggage_Toast} /><br/> </p>
+      <p> <input className='my-label' type="checkbox" onChange={handle_RainCheckbox} checked={RainFlag}/><span className='checkbox-text'>Does it rain?</span><img alt='i_icon2' className='info-icon' src={info_icon} onClick={Rain_Toast}/> <br/> </p>
+      <p> <input className='my-label' type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span className='checkbox-text'>Toll?</span> <span> 
       {PeajeFlag && (
-        <p>
-        <form>
           <label > 
             <input
+                className='type-box' 
                 type="int"
                 id="Toll"
                 name="Toll"
@@ -259,20 +259,20 @@ const App = () => {
                 placeholder="Type toll's cost..."
             />
           </label>
-        </form>
-      </p> 
-      )}
+       
+       
+      )} </span> <br/> </p>
 
       <p>
         <button 
           onClick={handle_Clear}
-          /*onClick={play}*/
-          className='my-buttons'>Clear
+          className='clear-button'>Clear
         </button>
         <button
           onClick={handle_Calculate}
           className='my-buttons'>Calculate
         </button>
+      </p>
       </p>
 
       <h2>{top_msg}</h2>
