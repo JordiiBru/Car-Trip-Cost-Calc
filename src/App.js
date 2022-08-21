@@ -172,8 +172,9 @@ const App = () => {
     res = res.toFixed(2);
     var distribution = res / Passengers;
     distribution = distribution.toFixed(2);
+    var res_msg = 'Each passenger has to pay '+ distribution +' € to the driver';
     confetti_shot();
-    return 'Each passenger has to pay '+ distribution +' € to the driver';
+    return res_msg;
   }
 
   function display_Top(){
@@ -201,6 +202,10 @@ const App = () => {
     new Audio(infoMusic).play()
     Rain_Toast()
   }
+
+
+
+  
 
   return (
     <div className="App">
@@ -272,7 +277,7 @@ const App = () => {
         </form>  
       </p>
 
-      <p> <input className='checkbox-box' type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span className='checkbox-text'>Toll?</span> <span> 
+      <p> <input className='my-label' type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span className='checkbox-text'>Toll?</span> <span> 
       {PeajeFlag && (
           <label > 
             <input
