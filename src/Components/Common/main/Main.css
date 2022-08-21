@@ -1,0 +1,92 @@
+.App {
+    background-color: #373737;
+    color: white;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.my-buttons {
+    width: 100px;
+    margin-right: 5px;
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.clear-button {
+    margin-right: 5px;
+    margin-left: 735px;
+    width: 100px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.info-icon {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.my-toast {
+    display: center;
+    text-align: center;
+}
+
+.close-toast {
+    float: right;
+}
+
+.logo_pic {
+    height: 210px;
+    width: 385px;
+    margin-left: 510px;
+}
+
+.type-box {
+    margin-left: 10px;
+    margin-right: 500px;
+    float: right;
+    font-family: 'Poppins', sans-serif;
+}
+
+.my-label {
+    text-align: left;
+    margin-left: 450px;
+}
+
+.intro-text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+}
+
+.checkbox-box {
+    cursor: pointer;
+    text-align: left;
+    margin-left: 450px;
+}
+
+.checkbox-text {
+    margin-left: 10px;
+}
+
+.param-box {
+    background-color: #6c6c6c;
+    height: 400px;
+}
+
+.result-text {
+    text-align: center;
+    /*background-color: #4d4d4d;
+    width: 50%;
+    margin-left: 340px;*/
+}
+
+.move-text {
+    text-align: center;
+}

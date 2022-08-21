@@ -2,6 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import './App.css';
 import { Header } from './Components/Common'
+import { Main } from './Components/Common'
 import entry from './Components/Pictures/gas_logo.png';
 import JSConfetti from 'js-confetti'
 import toast, { Toaster } from 'react-hot-toast';
