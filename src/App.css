@@ -7,19 +7,25 @@
  }
 
  .my-buttons {
-  width: 100px;
+  width: 140px;
+  height: 40px;
   margin-right: 5px;
   display: inline-block;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
+  background-color: #b2f064;
+  font-size: x-large;
  }
 
  .clear-button {
   margin-right: 5px;
-  margin-left: 910px;
-  width: 100px;
+  margin-left: 825px;
+  width: 140px;
+  height: 40px;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
+  background-color: #f06464;
+  font-size: x-large;
  }
 
 .info-icon {
@@ -39,21 +45,24 @@
 }
 
 .logo_pic {
-  height: 210px;
-  width: 385px;
-  margin-left: 960px;
+  height: 280px;
+  width: 470px;
+  margin-left: 720px;
 }
 
 .type-box {
   margin-left: 10px;
-  margin-right: 500px;
+  margin-right: 440px;
   float: right;
   font-family: 'Poppins', sans-serif;
+  font-size: large;
+  /*width: 500px;*/
 }
 
 .my-label {
   text-align: left;
-  margin-left: 450px;
+  margin-left: 390px;
+  font-size: x-large;
 }
 
 .intro-text {
@@ -67,11 +76,12 @@
 .checkbox-box {
   cursor: pointer;
   text-align: left;
-  margin-left: 450px;
+  margin-left: 390px;
 }
 
 .checkbox-text {
   margin-left: 10px;
+  font-size: x-large;
 }
 
 .param-box {

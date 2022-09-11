@@ -276,7 +276,7 @@ const App = () => {
         </form>  
       </p>
 
-      <p> <input className='my-label' type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span className='checkbox-text'>Toll?</span> <span> 
+      <p> <input className='checkbox-box ' type="checkbox" onClick={handle_PeajeCheckbox} checked={PeajeFlag}/><span className='checkbox-text'>Toll?</span> <span> 
       {PeajeFlag && (
           <label > 
             <input

@@ -13,6 +13,7 @@
     text-transform: uppercase;
     outline: none;
     font-family: 'Poppins', sans-serif;
+    font-size: x-large;
   }
 
   .header-bottom {
@@ -32,8 +33,8 @@
   }
 
   .profile_pic {
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
