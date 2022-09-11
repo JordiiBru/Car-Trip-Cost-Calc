@@ -2,11 +2,11 @@
 
 This is one of my first projects using the React framework and it consists on a calculator to solve the expenses in a long car trip.
 
-By simply entering the values and checking the necessary boxes, we will get the liters consumed and the corresponding money spent. It also facilitates the calculation when distributing the money spent for the driver among all passengers. 
+By simply entering the values and checking the necessary boxes, we can get the liters consumed and the corresponding money spent. It also facilitates the calculation when distributing the money spent for the driver among all passengers. 
 
-This website is only supported in 1920x1080 resolution displays. The idea is to support every kind of display but I don't have enough free time.
+This website is still only supported in 1920x1080 resolution displays. The idea is to support every kind of display but I don't have enough free time.
 
-Feel free to share this link --> https://jordiibru.github.io/Car-Trip-Cost-Calc/
+Feel free to share this link! --> https://jordiibru.github.io/Car-Trip-Cost-Calc/
 
 Enjoy my new App! 
             ~ Jordii Bru 🌼
