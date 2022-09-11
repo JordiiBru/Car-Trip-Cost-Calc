@@ -5,7 +5,7 @@ import me_pic from '../../Pictures/prof_pic.png'
 function Navbar () {
     return (
         <section className='navbar'>
-            <a href="/" className="navbar-item">Home</a>
+            <a href="https://jordiibru.github.io/Car-Trip-Cost-Calc/" className="navbar-item">Home</a>
             <a href="https://github.com/JordiiBru/Car-Trip-Cost-Calc/blob/master/README.md" className="navbar-item">About</a>
             <a href="https://twitter.com/jordi_bru" className="navbar-item">Contact</a>
             <a href="https://github.com/JordiiBru"className='navbar-item'> @JordiiBru</a>
