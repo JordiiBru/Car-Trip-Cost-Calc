@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Car-Trip-Cost-Calc/static/css/main.11e5319f.css",
+    "main.css": "/Car-Trip-Cost-Calc/static/css/main.413662ca.css",
     "main.js": "/Car-Trip-Cost-Calc/static/js/main.75219e7e.js",
     "static/js/787.08e3fbd0.chunk.js": "/Car-Trip-Cost-Calc/static/js/787.08e3fbd0.chunk.js",
     "static/media/prof_pic.png": "/Car-Trip-Cost-Calc/static/media/prof_pic.a67b2bb8c4fd9cc85058.png",
@@ -10,12 +10,12 @@
     "static/media/amogus.mp3": "/Car-Trip-Cost-Calc/static/media/amogus.fa7e4f58fb8e4c012ef8.mp3",
     "static/media/switch.mp3": "/Car-Trip-Cost-Calc/static/media/switch.deeaf3d28c1bdbf94c14.mp3",
     "index.html": "/Car-Trip-Cost-Calc/index.html",
-    "main.11e5319f.css.map": "/Car-Trip-Cost-Calc/static/css/main.11e5319f.css.map",
+    "main.413662ca.css.map": "/Car-Trip-Cost-Calc/static/css/main.413662ca.css.map",
     "main.75219e7e.js.map": "/Car-Trip-Cost-Calc/static/js/main.75219e7e.js.map",
     "787.08e3fbd0.chunk.js.map": "/Car-Trip-Cost-Calc/static/js/787.08e3fbd0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.11e5319f.css",
+    "static/css/main.413662ca.css",
     "static/js/main.75219e7e.js"
   ]
 }
