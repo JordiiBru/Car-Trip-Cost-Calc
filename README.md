@@ -6,8 +6,6 @@ By simply entering the values and checking the necessary boxes, we can get the l
 
 This website is still only supported in 1920x1080 resolution displays. The idea is to support every kind of display but I don't have enough free time.
 
-Feel free to share this link! --> https://jordiibru.github.io/Car-Trip-Cost-Calc/
-
 Enjoy my new App! 
             ~ Jordii Bru 🌼
             
